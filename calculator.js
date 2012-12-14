@@ -56,7 +56,7 @@ app.get('/calc', function(request, response) {
 app.get('/calc2/:index', function(request, response) {
   var result =0;
   var index = parseInt(request.params.index)
-  var max = Math.random*1000000;
+  var max = Math.random()*1000000;
   for (var i = 0; i < max; i++) {
   	result+=index;
   }	
