@@ -53,13 +53,19 @@ app.get('/calc', function(request, response) {
   
 });
 
+function isPrime1(n) {
+ if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false; 
+ var m=Math.sqrt(n);
+ for (var i=2;i<=m;i++) if (n%i==0) return false;
+ return true;
+}
+
 app.get('/calc2/:index', function(request, response) {
   var result =0;
   var index = parseInt(request.params.index)
-  var max = Math.random()*1000000;
-  for (var i = 0; i < max; i++) {
-  	result+=index;
-  }	
+  for (var i = 0; i < 50000; i++) {
+  if (isPrime1(index*50000+i)) result++;
+  }
   response.send(""+result);
 });
 

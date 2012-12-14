@@ -7,7 +7,7 @@ var http = require('http');
 var calculator = require("./calculator.js");
 
 var cluster = require('cluster');
-var numCPUs = 16 || require('os').cpus().length;
+var numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
   // Fork workers.
